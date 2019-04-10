@@ -31,16 +31,24 @@ def bin_search(target, low, high, int_list):  # must use recursion
     elif high<low:
         return None
     mid = (high+low)//2
+    if target>int_list[high] or target<int_list[low]:
+        return None
     if target==int_list[mid]:
         return mid
+    elif target==int_list[high]:
+        return high
+    elif target== int_list[low]:
+        return low
     elif target>int_list[mid]:
-        low=mid
+        low=mid+1
         high=len(int_list)-1
-        return(bin_search(target,low+1, high, int_list))
+        return(bin_search(target,low, high, int_list))
     elif target<int_list[mid]:
-        high=mid
+        high=mid-1
         low=0
         return(bin_search(target,low, high, int_list))
-    
+
+
+  
 
 
