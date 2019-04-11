@@ -25,7 +25,7 @@ def reverse_rec(int_list):   # must use recursion
     if int_list==None:
         raise ValueError
     elif len(int_list)==0:
-        return None
+        return []
     #base case if the length is one
     if len(int_list)==1:
         return int_list
@@ -44,26 +44,18 @@ def bin_search(target, low, high, int_list):  # must use recursion
         raise ValueError
     elif len(int_list)==0:
         return None
-    elif high<low:
+    if high<low:
         return None
     #creates a mid point value 
     mid = (high+low)//2
     #determines what to do based on midpoint and target
-    if target>int_list[high] or target<int_list[low]:
-        return None
     if target==int_list[mid]:
         return mid
-    elif target==int_list[high]:
-        return high
-    elif target== int_list[low]:
-        return low
     elif target>int_list[mid]:
         low=mid+1
-        high=len(int_list)-1
         return(bin_search(target,low, high, int_list))
     elif target<int_list[mid]:
         high=mid-1
-        low=0
         return(bin_search(target,low, high, int_list))
 
     
