@@ -44,10 +44,10 @@ class TestLab1(unittest.TestCase):
             reverse_rec(tlist)
     def test_reverse_rec_empty(self):
         tlist=[]
-        self.assertEqual(reverse_rec(tlist),None)
+        self.assertEqual(reverse_rec(tlist),[])
     def test_reverse_rec_all(self):
         #checks if it will still reverse correctly with floats and negative numbers
-        self.assertEqual(reverse_rec([1,2,3]),[3,2,1])
+        self.assertEqual(reverse_rec([1,2,3,45,6]),[6,45,3,2,1])
         self.assertEqual(reverse_rec([0,0,0]),[0,0,0])
         self.assertEqual(reverse_rec([1.1,30.5,5]),[5,30.5,1.1])
         self.assertEqual(reverse_rec([-1,-2,-3]),[-3,-2,-1])
@@ -73,6 +73,21 @@ class TestLab1(unittest.TestCase):
         self.assertEqual(bin_search(8, low, high, list_val), 6 )
         self.assertEqual(bin_search(9, low, high, list_val), 7)
         self.assertEqual(bin_search(10, low, high, list_val), 8)
+    def test_bin_search_diff(self):
+        #Test all values from 0-10
+        list_val =[1,2,3,4,5]
+        list_val1 =[1,2,3,4,5,10]
+        low = 0
+        high = len(list_val)-1
+        self.assertEqual(bin_search(2, low, high, list_val), 1 )
+        self.assertEqual(bin_search(5, low, high, list_val), 4 )
+        self.assertEqual(bin_search(3, low, high, list_val), 2 )
+        self.assertEqual(bin_search(4, low, high, list_val), 3 )
+        self.assertEqual(bin_search(2, low, high, list_val1), 1 )
+        self.assertEqual(bin_search(5, low, high, list_val1), 4 )
+        self.assertEqual(bin_search(10, low,len(list_val1)-1, list_val1), 5 )
+        self.assertEqual(bin_search(4, low, len(list_val1)-1, list_val1), 3 )
+        self.assertEqual(bin_search(1, low, len(list_val1)-1, list_val1), 0 )
     def test_bin_search_not_covered(self):
         #checks if high and low doesn't span the list 
         list_val =[0,1,2,3,4,7,8,9,10]
