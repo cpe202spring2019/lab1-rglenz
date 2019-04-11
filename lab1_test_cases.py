@@ -9,7 +9,7 @@ class TestLab1(unittest.TestCase):
         tlist = None
         with self.assertRaises(ValueError):  # used to check for exception
             max_list_iter(tlist)
-    def tes_max_list_iter_empty(self):
+    def test_max_list_iter_empty(self):
         #checks empty lists 
         tlist=[]
         self.assertEqual(max_list_iter(tlist), None )
