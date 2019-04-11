@@ -4,7 +4,7 @@ from lab1 import *
  # A few test cases.  Add more!!!
 class TestLab1(unittest.TestCase):
 
-    def test_max_list_iter(self):
+    def test_max_list_iter_none(self):
         #Checks max list if the list is None 
         tlist = None
         with self.assertRaises(ValueError):  # used to check for exception
@@ -20,17 +20,17 @@ class TestLab1(unittest.TestCase):
         self.assertEqual(max_list_iter(tlist), 3 )
         tlist=[1,1,1]
         self.assertEqual(max_list_iter(tlist), 1 )
-    def test_max_list_iter_repeated_max(self):
+    def test_max_list_iter_repeated(self):
         #checks if it will still run even if max is right next to an equal max
         tlist=[1,2,3,3]
         self.assertEqual(max_list_iter(tlist), 3 )
-    def test_max_list_iter_repeated_max(self):
+    def test_max_list_iter_negative(self):
         #checks to see if the function will run with negative numbers 
         tlist=[-11,-2,3]
         self.assertEqual(max_list_iter(tlist), 3 )
         tlist=[-11,-2,-3]
         self.assertEqual(max_list_iter(tlist), -2 )
-    def test_max_list_iter_repeated_max(self):
+    def test_max_list_iter_float(self):
         #checks to see if the function will run with floats 
         tlist=[.1,.2,.3]
         self.assertEqual(max_list_iter(tlist), .3 )
@@ -45,7 +45,7 @@ class TestLab1(unittest.TestCase):
     def test_reverse_rec_empty(self):
         tlist=[]
         self.assertEqual(reverse_rec(tlist),None)
-    def test_reverse_rec_(self):
+    def test_reverse_rec_all(self):
         #checks if it will still reverse correctly with floats and negative numbers
         self.assertEqual(reverse_rec([1,2,3]),[3,2,1])
         self.assertEqual(reverse_rec([0,0,0]),[0,0,0])
